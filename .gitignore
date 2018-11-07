@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 client/node_modules/.bin/_mocha-nightwatch.cmd
 client/node_modules/
 server/node_modules/
+=======
+node_modules
+db/
+>>>>>>> dev2
