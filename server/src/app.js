@@ -9,8 +9,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 var mongoose = require('mongoose');
-var DATABASE_URL = process.env.DATABASE_URL || 'http://localhost'
-mongoose.connect(`mongodb://${DATABASE_URL}/vue-crud-demo`);
+mongoose.connect('mongodb://localhost:27017/MEVN-crud');
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
