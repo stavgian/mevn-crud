@@ -5,6 +5,12 @@
     <ul>
       <li>
         <a
+          href="/posts">
+          Posts
+        </a>
+      </li>
+      <li>
+        <a
           href="https://vuejs.org"
           target="_blank"
         >

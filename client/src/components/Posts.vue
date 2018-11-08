@@ -1,6 +1,8 @@
 <template>
   <div class="posts">
-    <h1>Posts</h1>
+    <h1>Posts: {{ fetchCount }}</h1>
+     <button @click="increment">Increment</button>
+     <button @click="decrement">decrement</button>
     <div v-if="posts.length > 0" class="table-wrap">
       <div>
         <router-link v-bind:to="{ name: 'NewPost' }" class="">Add Post</router-link>
@@ -11,7 +13,7 @@
           <td width="550">Description</td>
           <td width="100" align="center">Action</td>
         </tr>
-        <tr v-for="post in posts">
+        <tr v-for="post in posts" :key="post.id">
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td align="center">
@@ -24,14 +26,22 @@
     <div v-else>
       There are no posts.. Lets add one now <br /><br />
       <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Add Post</router-link>
+
+      <!-- <button @click="crement">Decrement</button> -->
     </div>
   </div>
 </template>
 
 <script>
 import PostsService from '@/services/PostsService'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'posts',
+  computed: {
+    ...mapGetters([
+      'fetchCount'
+    ])
+  },
   data () {
     return {
       posts: []
@@ -41,21 +51,23 @@ export default {
     this.getPosts()
   },
   methods: {
+    ...mapActions([
+      'increment', 'decrement'
+    ]),
     async getPosts () {
       const response = await PostsService.fetchPosts()
       this.posts = response.data.posts
     },
     async deletePost (id) {
       await PostsService.deletePost(id)
-      this.getPosts();
+      this.getPosts()
       this.$router.push({ name: 'Posts' })
     }
   }
 }
 </script>
 
-
-<style type="text/css">
+<style type="scss">
 .table-wrap {
   width: 60%;
   margin: 0 auto;

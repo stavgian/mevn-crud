@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+@import 'variables';
+
+#app {
+  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $color;
+  margin-top: 60px;
+}
