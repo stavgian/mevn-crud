@@ -1,4 +1,6 @@
 <template>
+  <v-layout>
+
   <div class="posts">
     <h1>Posts: {{ fetchCount }}</h1>
      <button @click="increment">Increment</button>
@@ -17,8 +19,16 @@
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td align="center">
-            <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">Edit</router-link> |
-            <a href="#" @click="deletePost(post._id)">Delete</a>
+            <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">
+              <v-btn dark color="indigo">
+          <v-icon dark>edit</v-icon>
+        </v-btn>
+              </router-link> |
+            <a href="#" @click="deletePost(post._id)">
+                <v-btn dark color="indigo">
+          <v-icon dark>delete</v-icon>
+        </v-btn>
+            </a>
           </td>
         </tr>
       </table>
@@ -27,9 +37,18 @@
       There are no posts.. Lets add one now <br /><br />
       <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Add Post</router-link>
 
+
+
       <!-- <button @click="crement">Decrement</button> -->
     </div>
   </div>
+  <router-link v-bind:to="{ name: 'NewPost' }" class="side_bar_link">
+    <v-btn fab dark color="indigo">
+          <v-icon dark>add</v-icon>
+        </v-btn>
+  </router-link>
+
+  </v-layout>
 </template>
 
 <script>
