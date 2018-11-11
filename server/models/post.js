@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
   title: String,
+  short_title: String,
   description: String
 });
 

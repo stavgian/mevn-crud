@@ -16,6 +16,16 @@
             <v-list-tile-content>Posts</v-list-tile-content>
           </v-list-tile>
         </router-link>
+        <router-link v-bind:to="{ name: 'Login' }" class="side_bar_link">
+          <v-list-tile>
+            <v-list-tile-content>Login</v-list-tile-content>
+          </v-list-tile>
+        </router-link>
+        <router-link v-bind:to="{ name: 'Register' }" class="side_bar_link">
+          <v-list-tile>
+            <v-list-tile-content>Register</v-list-tile-content>
+          </v-list-tile>
+        </router-link>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>

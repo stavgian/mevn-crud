@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    this is home
+    this is home : {{msg}}
   </v-layout>
   </template>
 
@@ -11,7 +11,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
 }
 </script>
 

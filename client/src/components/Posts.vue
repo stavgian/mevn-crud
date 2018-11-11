@@ -3,8 +3,8 @@
 
   <div class="posts">
     <h1>Posts: {{ fetchCount }}</h1>
-     <button @click="increment">Increment</button>
-     <button @click="decrement">decrement</button>
+     <!-- <button @click="increment">Increment</button>
+     <button @click="decrement">decrement</button> -->
     <div v-if="posts.length > 0" class="table-wrap">
       <div>
         <router-link v-bind:to="{ name: 'NewPost' }" class="">Add Post</router-link>
@@ -12,12 +12,12 @@
       <table>
         <tr>
           <td>Title</td>
-          <td width="550">Description</td>
+          <td width="550">Short title</td>
           <td width="100" align="center">Action</td>
         </tr>
         <tr v-for="post in posts" :key="post.id">
           <td>{{ post.title }}</td>
-          <td>{{ post.description }}</td>
+          <td>{{ post.short_title }}</td>
           <td align="center">
             <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">
               <v-btn dark color="indigo">
@@ -47,6 +47,47 @@
           <v-icon dark>add</v-icon>
         </v-btn>
   </router-link>
+
+<div class="text-xs-center">
+      <v-dialog
+        v-model="dialog"
+        width="500"
+      >
+        <v-btn
+          slot="activator"
+          color="red lighten-2"
+          dark
+        >
+          Click Me
+        </v-btn>
+
+        <v-card>
+          <v-card-title
+            class="headline grey lighten-2"
+            primary-title
+          >
+            Privacy Policy
+          </v-card-title>
+
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              flat
+              @click="dialog = false"
+            >
+              I accept
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>.
 
   </v-layout>
 </template>

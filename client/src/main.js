@@ -6,6 +6,8 @@ import BootstrapVue from 'bootstrap-vue'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import CKEditor from '@ckeditor/ckeditor5-vue'
+import VueSwal from 'vue-swal'
 import App from './App'
 import { store } from './store/store'
 import router from './router'
@@ -13,6 +15,8 @@ import router from './router'
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(Vuetify)
+Vue.use(VueSwal)
+Vue.use(CKEditor)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
